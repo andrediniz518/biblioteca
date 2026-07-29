@@ -50,5 +50,7 @@ def editar_livro(request, id):
 
 def excluir_livro(request, id):
     livro = Livro.objects.get(id=id)
-    livro.delete()  
-    return redirect('lista_livros')
+    if request.method == 'POST':
+        livro.delete()
+        return redirect('lista_livros')
+    return render(request, 'livros/excluir_livro.html', {'livro': livro})

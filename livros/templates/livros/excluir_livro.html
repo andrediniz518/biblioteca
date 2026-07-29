@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Excluir Livro</title>
+</head>
+<body>
+
+    <h1>Tem certeza que deseja excluir este livro?</h1>
+
+    <p>{{ livro.titulo }}</p>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        <button type="submit">Sim, excluir</button>
+    </form>
+
+    <a href="{% url 'lista_livros' %}">
+        Cancelar
+    </a>
+
+</body>
+</html>
