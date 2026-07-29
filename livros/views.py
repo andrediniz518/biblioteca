@@ -1,6 +1,7 @@
 from django.shortcuts import render, get_object_or_404, redirect
 from .models import Livro
 from .forms import LivroForm
+from django.contrib import messages
 
 
 # Create your views here.
@@ -28,6 +29,7 @@ def cadastrar_livro(request):
 
         if form.is_valid():
             form.save()
+            messages.success(request, 'Livro cadastrado com sucesso!')
             return redirect('lista_livros')
     else:
         form = LivroForm()
@@ -41,6 +43,7 @@ def editar_livro(request, id):
 
         if form.is_valid():
             form.save()
+            messages.success(request, 'Livro atualizado com sucesso!')
             return redirect('lista_livros')
     else:
         form = LivroForm(instance=livro)
@@ -52,5 +55,6 @@ def excluir_livro(request, id):
     livro = Livro.objects.get(id=id)
     if request.method == 'POST':
         livro.delete()
+        messages.success(request, 'Livro excluído com sucesso!')
         return redirect('lista_livros')
     return render(request, 'livros/excluir_livro.html', {'livro': livro})

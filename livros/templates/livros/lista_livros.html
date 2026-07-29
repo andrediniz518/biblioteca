@@ -5,8 +5,16 @@
 </head>
 <body>
 
-    <h1>Lista de Livros</h1>
+    <h1>Sistema de Gerenciamento Biblioteca</h1>
 
+    <a href="{% url 'cadastrar_livro' %}">
+    Cadastrar Livro
+    </a>
+    {% if messages %}
+    {% for message in messages %}
+        <p>{{ message }}</p>
+    {% endfor %}
+    {% endif %}
     {% for livro in livros %}
         <a href="{% url 'detalhe_livro' livro.id %}">
         <h2>{{ livro.titulo }}</h2>
