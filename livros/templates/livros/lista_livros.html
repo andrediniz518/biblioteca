@@ -13,6 +13,9 @@
         </a>
         <p>Autor: {{ livro.autor }}</p>
         <p>Ano: {{ livro.ano_publicacao }}</p>
+        <a href="{% url 'editar_livro' livro.id %}">
+        Editar  
+        </a>
         <hr>
     {% endfor %}
 

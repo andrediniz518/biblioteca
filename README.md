@@ -14,6 +14,7 @@ Projeto desenvolvido para praticar o framework Django.
 - Cadastro de livros pelo Django Admin
 - Listagem de livros na página inicial
 - Cadastro de novos livros
+- Edição de livros cadastrados
 
 ## Como executar
 

@@ -32,3 +32,18 @@ def cadastrar_livro(request):
     else:
         form = LivroForm()
     return render(request, 'livros/cadastrar_livro.html', {'form': form})
+
+
+def editar_livro(request, id):
+    livro = Livro.objects.get(id=id)
+    if request.method == 'POST':
+        form = LivroForm(request.POST, instance=livro)
+
+        if form.is_valid():
+            form.save()
+            return redirect('lista_livros')
+    else:
+        form = LivroForm(instance=livro)
+
+    return render(request, 'livros/editar_livro.html', {'form': form})
+    
