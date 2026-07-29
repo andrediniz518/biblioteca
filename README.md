@@ -7,15 +7,19 @@ Projeto desenvolvido para praticar o framework Django.
 - Python
 - Django
 - HTML
+- Bootstrap
 - SQLite
 
 ## Funcionalidades
 
 - Cadastro de livros pelo Django Admin
-- Listagem de livros na página inicial
 - Cadastro de novos livros
+- Listagem de livros na página inicial
+- Visualização dos detalhes de cada livro
 - Edição de livros cadastrados
 - Exclusão de livros cadastrados
+- Paginação da lista de livros
+- Formulários utilizando Django ModelForm
 - Mensagens de sucesso nas operações
 - Interface responsiva utilizando Bootstrap
 

@@ -2,12 +2,17 @@ from django.shortcuts import render, get_object_or_404, redirect
 from .models import Livro
 from .forms import LivroForm
 from django.contrib import messages
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 
 def lista_livros(request):
     livros = Livro.objects.all()
+  
+    paginator = Paginator(livros, 3)
+    pagina = request.GET.get('pagina')
+    livros = paginator.get_page(pagina)
+
     contexto = {
         'livros': livros
     }
