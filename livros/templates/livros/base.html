@@ -3,7 +3,6 @@
 <head>
     <title>
         {% block title %}
-        
         {% endblock %}
     </title>
 
@@ -13,12 +12,17 @@
 
 <body>
 
+<nav class="navbar navbar-dark bg-dark">
+    <div class="container">
+        <a class="navbar-brand" href="{% url 'lista_livros' %}">
+            📚 Sistema de Biblioteca
+        </a>
+    </div>
+</nav>
+
 <div class="container mt-4">
-
     {% block content %}
-
     {% endblock %}
-
 </div>
 
 </body>

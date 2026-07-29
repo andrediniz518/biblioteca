@@ -22,6 +22,7 @@ Projeto desenvolvido para praticar o framework Django.
 - Formulários utilizando Django ModelForm
 - Mensagens de sucesso nas operações
 - Interface responsiva utilizando Bootstrap
+- Busca de livros por título
 
 ## Como executar
 

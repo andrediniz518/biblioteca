@@ -12,6 +12,21 @@ Biblioteca
     Sistema de Gerenciamento de Biblioteca
 </h1>
 
+<form method="GET" class="mb-4">
+    <div class="input-group">
+        <input 
+            type="text" 
+            name="busca" 
+            class="form-control"
+            placeholder="Digite o título do livro"
+            value="{{ busca|default:'' }}"
+        >
+
+        <button class="btn btn-primary" type="submit">
+            Buscar
+        </button>
+    </div>
+</form>
 
 <a href="{% url 'cadastrar_livro' %}" class="btn btn-success mb-4">
     Cadastrar Livro
@@ -58,6 +73,10 @@ Biblioteca
         </div>
 
     </div>
+{% empty %}
+    <div class="alert alert-warning">
+        Nenhum livro encontrado.
+    </div>
 
 {% endfor %}
 
@@ -68,7 +87,7 @@ Biblioteca
 
             <li class="page-item">
                 <a class="page-link" 
-                   href="?pagina={{ livros.previous_page_number }}">
+                   href="?pagina={{ livros.previous_page_number }}&busca={{ busca }}">
                     Anterior
                 </a>
             </li>
@@ -98,7 +117,7 @@ Biblioteca
 
             {% else %}
                 <li class="page-item">
-                    <a class="page-link" href="?pagina={{ num }}">
+                    <a class="page-link" href="?pagina={{ num }}&busca={{ busca }}">
                         {{ num }}
                     </a>
                 </li>
@@ -109,7 +128,7 @@ Biblioteca
         {% if livros.has_next %}
             <li class="page-item">
                 <a class="page-link" 
-                   href="?pagina={{ livros.next_page_number }}">
+                  href="?pagina={{ livros.next_page_number }}&busca={{ busca }}">
                     Próxima
                 </a>
             </li>

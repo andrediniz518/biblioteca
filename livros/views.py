@@ -7,8 +7,12 @@ from django.core.paginator import Paginator
 # Create your views here.
 
 def lista_livros(request):
+
+    busca = request.GET.get('busca')
     livros = Livro.objects.all()
-  
+    if busca:
+        livros = livros.filter(titulo__icontains=busca)
+
     paginator = Paginator(livros, 3)
     pagina = request.GET.get('pagina')
     livros = paginator.get_page(pagina)
