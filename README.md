@@ -16,6 +16,8 @@ Projeto desenvolvido para praticar o framework Django.
 - Cadastro de novos livros
 - Edição de livros cadastrados
 - Exclusão de livros cadastrados
+- Mensagens de sucesso nas operações
+- Interface responsiva utilizando Bootstrap
 
 ## Como executar
 

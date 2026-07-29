@@ -37,7 +37,8 @@ def cadastrar_livro(request):
 
 
 def editar_livro(request, id):
-    livro = Livro.objects.get(id=id)
+    livro = get_object_or_404(Livro, id=id)
+    
     if request.method == 'POST':
         form = LivroForm(request.POST, instance=livro)
 
@@ -52,7 +53,7 @@ def editar_livro(request, id):
 
 
 def excluir_livro(request, id):
-    livro = Livro.objects.get(id=id)
+    livro = get_object_or_404(Livro, id=id)
     if request.method == 'POST':
         livro.delete()
         messages.success(request, 'Livro excluído com sucesso!')
