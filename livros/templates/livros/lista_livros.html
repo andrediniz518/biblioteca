@@ -8,7 +8,9 @@
     <h1>Lista de Livros</h1>
 
     {% for livro in livros %}
+        <a href="{% url 'detalhe_livro' livro.id %}">
         <h2>{{ livro.titulo }}</h2>
+        </a>
         <p>Autor: {{ livro.autor }}</p>
         <p>Ano: {{ livro.ano_publicacao }}</p>
         <hr>

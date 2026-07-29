@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Cadastrar Livro</title>
+</head>
+<body>
+
+    <h1>Cadastrar Livro</h1>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit">Salvar</button>
+    </form>
+
+    <a href="{% url 'lista_livros' %}">Voltar para lista</a>
+
+</body>
+</html>
