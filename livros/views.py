@@ -46,4 +46,9 @@ def editar_livro(request, id):
         form = LivroForm(instance=livro)
 
     return render(request, 'livros/editar_livro.html', {'form': form})
-    
+
+
+def excluir_livro(request, id):
+    livro = Livro.objects.get(id=id)
+    livro.delete()  
+    return redirect('lista_livros')
