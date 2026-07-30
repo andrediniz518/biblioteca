@@ -117,5 +117,7 @@ USE_TZ = True
 
 STATIC_URL = 'static/'
 
+STATIC_ROOT = BASE_DIR / 'staticfiles'
+
 LOGOUT_REDIRECT_URL = '/livros/'
 LOGIN_REDIRECT_URL = '/livros/'
