@@ -3,11 +3,11 @@ from .models import Livro
 from .forms import LivroForm
 from django.contrib import messages
 from django.core.paginator import Paginator
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
 def lista_livros(request):
-
     busca = request.GET.get('busca')
     livros = Livro.objects.all()
     if busca:
@@ -31,7 +31,7 @@ def detalhe_livro(request, id):
     }
     return render(request, 'livros/detalhe_livro.html', contexto)
 
-
+@login_required
 def cadastrar_livro(request):
     if request.method == 'POST':
         form = LivroForm(request.POST)
@@ -44,7 +44,7 @@ def cadastrar_livro(request):
         form = LivroForm()
     return render(request, 'livros/cadastrar_livro.html', {'form': form})
 
-
+@login_required
 def editar_livro(request, id):
     livro = get_object_or_404(Livro, id=id)
     
@@ -60,7 +60,7 @@ def editar_livro(request, id):
 
     return render(request, 'livros/editar_livro.html', {'form': form})
 
-
+@login_required
 def excluir_livro(request, id):
     livro = get_object_or_404(Livro, id=id)
     if request.method == 'POST':
